@@ -1,0 +1,48 @@
+getgenv().PrivateStorage = true;
+getgenv().AutoChest = true;
+getgenv().OpenDest = true;
+
+spawn(function()
+    while AutoChest == true do
+        wait()
+    pcall(function()
+    for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+        if v.Name == "Lid" or v.Name == "Part" and v.Parent.Parent.Name == "Chests" then
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
+            wait(0.5)
+            keypress(0x45)
+            keyrelease(0x45)
+            wait(5)
+        end
+    end
+    end)
+end
+end)
+
+
+spawn(function()
+    while OpenDest == true do
+        wait(4)
+    for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+        if v.Name == "Open" then
+            v.Parent:Destroy()
+        end
+    end
+    end
+end)
+
+
+
+
+
+
+spawn(function()
+    if PrivateStorage == true then
+        for i,v in pairs(game:GetService("Workspace").Map:GetDescendants()) do
+    if v.Name == "Base" and v.Parent.Name == "Private Storage" then
+       v:Destroy()
+        print("Destroyed!")
+    end
+        end
+end
+end)
