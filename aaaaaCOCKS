@@ -39,6 +39,7 @@ end
 
 for _,v in pairs(game:GetService("Workspace"):GetDescendants()) do
     if v:IsA("MeshPart") and v.Name == "Part" or v:IsA("MeshPart") and v.Name == "Base" then
-        ESP(v,v.Name,Color3.new(1,20,12))
+        ESP(v,v.Parent.Name,Color3.new(1,20,12))
+        print("cc")
+        end
     end
-end
